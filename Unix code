@@ -1,0 +1,189 @@
+# 1. File/Directory Handling Commands
+
+# Change Directory (cd)
+cd ..
+cd /
+cd ~
+cd -
+cd /usr/local
+cd lib
+
+# Present Working Directory (pwd)
+pwd
+
+# Listing Files and Directories (ls)
+ls
+ls -t
+ls -l
+ls -a
+ls -d
+ls -p
+ls -u
+ls -i
+ls -la
+ls -l -a
+
+# Echo Command
+echo "haii"
+
+# Using Vi Editor
+vi filename.sh
+
+# Concatenation (cat)
+cat file1 file2
+cat > newfile.txt
+cat newfile.txt
+cat -n file.txt
+cat -b file.txt
+cat -e file.txt
+
+# Make Directory (mkdir)
+mkdir newdir
+mkdir -p parentdir/subdir
+
+# Move Command (mv)
+mv source destination
+mv -i source destination
+mv file1 file2 dir/
+
+# Copy Command (cp)
+cp source destination
+cp -i source destination
+
+# Remove Command (rm)
+rm file
+rm *
+rm -r dir
+rm -i file
+
+# 2. Shell Script for Arithmetic and Logical Calculations
+#!/bin/sh
+a=2
+b=4
+c=3
+
+val=`expr $a + $b`
+echo "Sum = $val"
+
+val=`expr $a - $b`
+echo "Difference = $val"
+
+val=`expr $a \* $b`
+echo "Product = $val"
+
+val=`expr $b / $a`
+echo "Quotient = $val"
+
+val=`expr $a % $b`
+echo "Modulus = $val"
+
+if [ $a == $b ]; then
+  echo "a is equal to b"
+else
+  echo "a is not equal to b"
+fi
+
+if [ $a -lt 10 -o $b -gt 20 ]; then
+  echo "True"
+else
+  echo "False"
+fi
+
+if [ $a -lt 10 -a $b -gt 20 ]; then
+  echo "True"
+else
+  echo "False"
+fi
+
+# 3. Shell Script to Check File and Directory Attributes
+#!/bin/sh
+file="filename.sh"
+
+if [ -r $file ]; then
+  echo "File has read permission"
+else
+  echo "File does not have read permission"
+fi
+
+if [ -w $file ]; then
+  echo "File has write permission"
+else
+  echo "File does not have write permission"
+fi
+
+if [ -x $file ]; then
+  echo "File has execute permission"
+else
+  echo "File does not have execute permission"
+fi
+
+if [ -f $file ]; then
+  echo "File is an ordinary file"
+else
+  echo "This is a special file"
+fi
+
+if [ -d $file ]; then
+  echo "File is a directory"
+else
+  echo "File is not a directory"
+fi
+
+if [ -s $file ]; then
+  echo "File size is greater than zero"
+else
+  echo "File size is zero"
+fi
+
+if [ -e $file ]; then
+  echo "File exists"
+else
+  echo "File does not exist"
+fi
+
+# 4. Shell Script to Check and List Process Attributes
+#!/bin/sh
+ps
+echo "ps : process status"
+
+ps -f
+echo "ps -f : full listing"
+
+ps -l
+echo "ps -l : long listing showing memory-related information"
+
+ps -u
+echo "ps -u : processes of the user only"
+
+ps -e
+echo "ps -e : all processes including user and system processes"
+
+ps -a
+echo "ps -a : processes of all users, excluding terminal processes"
+
+ps -t
+echo "ps -t : processes running on terminal"
+
+# 5. AWK Script Utilizing All Features
+#!/bin/awk -f
+BEGIN {print "START"}
+{print $1, "\t", $3}
+END {print "DONE"}
+
+# Usage:
+awk -f script.awk input.txt
+echo -e "apple 10 banana 15\ncar 12 bike 20" | ./script.awk
+
+# 6. Shell Script to Display Logged-in Users
+#!/bin/sh
+echo "User logged in:"
+users
+
+echo "Current logged in date and time:"
+date
+
+echo "Currently logged in users:"
+who
+
+echo "Currently logged in username:"
+whoami
