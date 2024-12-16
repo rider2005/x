@@ -1,0 +1,27 @@
+Write a C/C++ program to implement the cat command using general file API’s.
+#include<sys/types.h>
+#include<sys/stat.h>These include the definitions of data types and structures used for system calls.
+#include<stdio.h>
+#include<fcntl.h> This is included to use the open() system call.
+main( int argc,char *argv[3] )  Represents the number of arguments passed to the program.
+{
+int fd,i;
+char buf[2];
+fd=open(argv[1],O_RDONLY,0777);  
+
+File descriptor   This opens the file specified by argv[1] in read-only mode (O_RDONLY).
+  0777 represents the permission mode (though it's unnecessary here since it is only relevant during file creation).
+
+if(fd==-argc) This is intended to check if the file was opened successfully.
+{
+printf("file open error");
+}
+else
+{
+while((i=read(fd,buf,1))>0)  Reads one byte from the file into the buffer buf
+{
+printf("%c",buf[0]);
+}
+close(fd);
+}
+}
